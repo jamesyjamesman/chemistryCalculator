@@ -1,9 +1,9 @@
 def dilution():
     print("Enter the three known values, leave the last blank.")
-    m1 = input("Input the first molarity.")
-    v1 = input("Input the first volume.")
-    m2 = input("Input the second molarity.")
-    v2 = input("Input the second volume.")
+    m1 = input("Input the first molarity.\n")
+    v1 = input("Input the first volume.\n")
+    m2 = input("Input the second molarity.\n")
+    v2 = input("Input the second volume.\n")
     if not m1.isnumeric():
         v1 = int(v1)
         m2 = int(m2)
@@ -24,11 +24,12 @@ def dilution():
         v1 = int(v1)
         m2 = int(m2)
         return m1 * v1 / m2
+    else:
+        return "Too many values submitted!"
 
-calculate = input("What would you like to calculate?\n"
-                  "Options:\n"
-                  "Dilution (0)\n")
-if calculate == "0":
+calculate = int(input("\nWhat would you like to calculate?\n\n"
+                  "Dilution (0)\n"))
+if calculate == 0:
     print(dilution())
 
 
