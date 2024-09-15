@@ -1,3 +1,5 @@
+import periodictable
+
 def dilution():
     print("Enter the three known values, leave the last blank.")
     m1 = input("Input the first molarity.\n")
@@ -27,9 +29,25 @@ def dilution():
     else:
         return "Too many values submitted!"
 
+def find_molar_mass():
+    done = False
+    molar_masses = []
+    while not done:
+        atomic_number = input("Enter the atomic number of the element you'd like to convert.\n")
+        atomic_mass =  periodictable.elements[int(atomic_number)].mass
+        amount = int(input("Enter the amount to convert.\n"))
+        molar_mass = atomic_mass * amount
+        molar_masses.append(molar_mass)
+        if input("done? (y/n)\n").lower() == "y":
+            done = True
+    return molar_masses
+
 calculate = int(input("\nWhat would you like to calculate?\n\n"
-                  "Dilution (0)\n"))
+                  "Dilution (0)\n"
+                  "Find molar mass (1)\n"))
 if calculate == 0:
     print(dilution())
+if calculate == 1:
+    print(f"That molecule has {round(sum(find_molar_mass()), 3)} g/mol.")
 
 
